@@ -1,14 +1,37 @@
+import { useState } from 'react';
 import './App.css';
 import Message from './components/Message';
 
-const msgContent = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque vitae adipisci illum perferendis nulla quisquam, iure inventore ipsa officiis id porro aspernatur nam quo maiores. Distinctio minima rem maiores incidunt."
 
 function App() {
+
+  const [messageList, setMessageList] = useState([]);
+
+  const addMessage = () => {
+    const copyMessageList = [...messageList];
+    copyMessageList.push({
+      author: 'somebody',
+      text: 'some text'
+    });
+    setMessageList(copyMessageList);
+  };
+
   return (
     <div className="App">
-      <Message text={msgContent}/>
+      <div className="message-list">
+        {messageList.map((message) => 
+          <Message 
+            author={message.author}
+            text={message.text}
+          />
+        )}
+      </div> 
+
+      <div>
+        <button onClick={addMessage}>Send</button>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
