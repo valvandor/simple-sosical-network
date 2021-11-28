@@ -6,15 +6,24 @@ import Message from './components/Message';
 function App() {
 
   const [messageList, setMessageList] = useState([]);
+  const [newMessageText, setNewMessageText] = useState('');
 
-  const addMessage = () => {
-    const copyMessageList = [...messageList];
-    copyMessageList.push({
-      author: 'somebody',
-      text: 'some text'
-    });
-    setMessageList(copyMessageList);
-  };
+  const onSubmitMessageForm = (event) => {
+    event.preventDefault();
+    if (newMessageText){
+      const copyMessageList = [...messageList];
+      copyMessageList.push({
+        author: 'You',
+        text: `${newMessageText}`
+      });
+      setMessageList(copyMessageList);
+      setNewMessageText('')
+    }
+  }
+
+  const onChangeMessageForm = (event) => {
+    setNewMessageText(event.target.value);
+  }
 
   return (
     <div className="App">
@@ -27,9 +36,10 @@ function App() {
         )}
       </div> 
 
-      <div>
-        <button onClick={addMessage}>Send</button>
-      </div>
+      <form onSubmit={onSubmitMessageForm} name="messageForm">
+        <input type="text" onChange={onChangeMessageForm} value={newMessageText}/>
+        <input type="submit" value="Send"/>
+      </form>
     </div>
   );
 };
