@@ -10,12 +10,18 @@ function MessageApp() {
   ] = useMessages()
 
   useEffect(() => {
-    if (messageList.length){
-      if (messageList[messageList.length - 1].author === 'You'){
+    if (!messageList.length){
+      return
+    }
+    if (messageList[messageList.length - 1].author === 'You'){
+      const timerId = setTimeout(() => {
         addMessageFromBot()
+      }, 1500)
+      return () => {
+        clearTimeout(timerId)
       }
     }
-  });
+  }, [messageList, addMessageFromBot]);
   
 
   return ( 

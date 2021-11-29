@@ -22,14 +22,14 @@ export const useMessages = () => {
     setNewMessageText(event.target.value);
   }, []);
 
-  const addMessageFromBot = () => {
+  const addMessageFromBot = useCallback(() => {
     const copyMessageList = [...messageList];
     copyMessageList.push({
       author: 'R2D2',
       text: "I don't get you"
     });
-    setMessageList(copyMessageList);;   
-  };
+    setMessageList(copyMessageList);
+  }, [messageList]);
 
   return [
     {messageList, newMessageText},
