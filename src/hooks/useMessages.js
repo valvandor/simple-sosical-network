@@ -22,8 +22,17 @@ export const useMessages = () => {
     setNewMessageText(event.target.value);
   }, []);
 
+  const addMessageFromBot = () => {
+    const copyMessageList = [...messageList];
+    copyMessageList.push({
+      author: 'R2D2',
+      text: "I don't get you"
+    });
+    setMessageList(copyMessageList);;   
+  };
+
   return [
     {messageList, newMessageText},
-    {onChangeMessageForm, onSubmitMessageForm}
+    {onChangeMessageForm, onSubmitMessageForm, addMessageFromBot}
   ];
 };
