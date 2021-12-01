@@ -5,34 +5,30 @@ export const useMessages = () => {
   const [messageList, setMessageList] = useState([]);
   const [newMessageText, setNewMessageText] = useState('');
 
-  const onSubmitMessageForm = useCallback((event) => {
-    event.preventDefault();
-    if (newMessageText){
-      const copyMessageList = [...messageList];
-      copyMessageList.push({
-        author: 'You',
-        text: `${newMessageText}`
-      });
-      setMessageList(copyMessageList);
-      setNewMessageText('')
-    }
-  }, [messageList, newMessageText]);
-
-  const onChangeMessageForm = useCallback((event) => {
-    setNewMessageText(event.target.value);
-  }, []);
-
-  const addMessageFromBot = useCallback(() => {
+  const sendMessage = useCallback((author, text) => {
     const copyMessageList = [...messageList];
-    copyMessageList.push({
-      author: 'R2D2',
-      text: "I don't get you"
-    });
+    const newMessage = {
+      author: author,
+      text: text
+    };
+    copyMessageList.push(newMessage);
     setMessageList(copyMessageList);
   }, [messageList]);
 
+  const onSubmitMessageForm = useCallback((event) => {
+    event.preventDefault();
+    if (newMessageText){
+      sendMessage('You', newMessageText);
+      setNewMessageText('');
+    }
+  }, [newMessageText, sendMessage]);
+
+  const onChangeMessageInput = useCallback((event) => {
+    setNewMessageText(event.target.value);
+  }, []);
+
   return [
     {messageList, newMessageText},
-    {onChangeMessageForm, onSubmitMessageForm, addMessageFromBot}
+    {onChangeMessageInput, onSubmitMessageForm, sendMessage}
   ];
 };

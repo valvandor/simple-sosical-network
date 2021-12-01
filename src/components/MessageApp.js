@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 function MessageApp() {
   const [
     {messageList, newMessageText}, 
-    {onChangeMessageForm, onSubmitMessageForm, addMessageFromBot}
+    {onChangeMessageInput, onSubmitMessageForm, sendMessage}
   ] = useMessages()
 
   useEffect(() => {
@@ -15,13 +15,13 @@ function MessageApp() {
     }
     if (messageList[messageList.length - 1].author === 'You'){
       const timerId = setTimeout(() => {
-        addMessageFromBot()
+        sendMessage('R2D2', "I don't get you");
       }, 1500)
       return () => {
         clearTimeout(timerId)
       }
     }
-  }, [messageList, addMessageFromBot]);
+  }, [messageList, sendMessage]);
   
 
   return ( 
@@ -29,7 +29,7 @@ function MessageApp() {
       <MessageList messageList={messageList}/> 
       <MessageForm 
         newMessageText={newMessageText}
-        onChangeMessageForm={onChangeMessageForm}
+        onChangeMessageInput={onChangeMessageInput}
         onSubmitMessageForm={onSubmitMessageForm}        
       />
     </>
