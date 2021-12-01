@@ -1,0 +1,36 @@
+.message-form {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  position: fixed;
+  bottom: 0vh;
+  left:0vw;
+  max-height: 40vh;
+  align-self: center;
+}
+
+.message-form__input {
+  width: 80%;
+  padding: 12px 20px;
+  margin: 8px;
+  box-sizing: border-box; 
+  border-radius: 4px;
+  border: 1px solid black;
+  height: 50px;
+  resize: none;
+}
+
+.message-form__input:focus {
+  border: 3px solid #555;
+}
+
+.message-form__button {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  color: white;
+  padding: 16px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
