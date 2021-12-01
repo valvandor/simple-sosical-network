@@ -1,5 +1,5 @@
 import Message from './Message';
-
+import './MessageList.css'
 
 function MessageList(props) {
   return ( 
