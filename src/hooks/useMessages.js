@@ -15,7 +15,7 @@ export const useMessages = () => {
     setMessageList(copyMessageList);
   }, [messageList]);
 
-  const onSubmitMessageForm = useCallback((event) => {
+  const submitMessageForm = useCallback((event) => {
     event.preventDefault();
     if (newMessageText){
       sendMessage('You', newMessageText);
@@ -23,12 +23,12 @@ export const useMessages = () => {
     }
   }, [newMessageText, sendMessage]);
 
-  const onChangeMessageInput = useCallback((event) => {
+  const changeMessageInput = useCallback((event) => {
     setNewMessageText(event.target.value);
   }, []);
 
   return [
     {messageList, newMessageText},
-    {onChangeMessageInput, onSubmitMessageForm, sendMessage}
+    {changeMessageInput, submitMessageForm, sendMessage}
   ];
 };

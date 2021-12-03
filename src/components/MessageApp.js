@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 function MessageApp() {
   const [
     {messageList, newMessageText}, 
-    {onChangeMessageInput, onSubmitMessageForm, sendMessage}
+    {changeMessageInput, submitMessageForm, sendMessage}
   ] = useMessages()
 
   useEffect(() => {
@@ -29,8 +29,8 @@ function MessageApp() {
       <MessageList messageList={messageList}/> 
       <MessageForm 
         newMessageText={newMessageText}
-        onChangeMessageInput={onChangeMessageInput}
-        onSubmitMessageForm={onSubmitMessageForm}        
+        changeMessageInput={changeMessageInput}
+        submitMessageForm={submitMessageForm}        
       />
     </>
    );

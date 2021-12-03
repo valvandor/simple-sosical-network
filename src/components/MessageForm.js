@@ -1,12 +1,24 @@
-import "./MessageForm.css"
+// import "./MessageForm.css"
+import { FormControl, TextField, Button} from "@mui/material";
+
 
 function MessageForm(props) {
-
   return ( 
-    <form className="message-form" onSubmit={props.onSubmitMessageForm} name="messageForm">
-      <input className="message-form__input" type="text" onChange={props.onChangeMessageInput} value={props.newMessageText}/>
-      <input className="message-form__button" type="submit" value="Send"/>
-    </form>
+    <FormControl
+      fullWidth
+    >
+      <TextField 
+        label="Your message" 
+        variant="outlined" 
+        onChange={props.changeMessageInput}
+        value={props.newMessageText}
+      />
+      <Button 
+        onClick={props.submitMessageForm} 
+        variant="contained"
+      >Send
+      </Button>
+    </FormControl>
    );
 }
 
