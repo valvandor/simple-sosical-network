@@ -8,6 +8,7 @@ function MessageForm(props) {
       fullWidth
     >
       <TextField 
+        inputRef={textFieldRef => textFieldRef && textFieldRef.focus()}
         label="Your message" 
         variant="outlined" 
         onChange={props.changeMessageInput}
