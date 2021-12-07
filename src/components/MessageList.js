@@ -7,6 +7,7 @@ function MessageList(props) {
     <List className="message-list">
       {props.messageList.map((message) => 
         <Message 
+          key={message.id}
           author={message.author}
           text={message.text}
         />
