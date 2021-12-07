@@ -20,6 +20,7 @@ function MessageForm(props) {
       <Button 
         onClick={props.submitMessageForm} 
         variant="contained"
+        className="message-form__button"
       >
         <SendIcon />
       </Button>
