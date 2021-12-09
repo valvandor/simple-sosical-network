@@ -1,10 +1,12 @@
-import List from '@mui/material/List';
+import { List } from '@mui/material';
 import Message from './Message';
-import './MessageList.css'
 
 function MessageList(props) {
   return ( 
-    <List className="message-list">
+    <List 
+      sx={{overflowY:"scroll", height: "calc(100vh - 64px - 56px - 16px - 16px - 16px)"}}
+      component="div"
+    >
       {props.messageList.map((message) => 
         <Message 
           key={message.id}
@@ -13,7 +15,7 @@ function MessageList(props) {
         />
       )}
     </List> 
-   );
+  );
 }
 
 export default MessageList;

@@ -1,18 +1,30 @@
-import ListSubheader from '@mui/material/ListSubheader';
-import ListItem from '@mui/material/ListItem';
-import List from '@mui/material/List';
-import './Message.css'
+import { Paper, Typography, Container, List } from '@mui/material';
 
 function Message(props) {
   return (
     <List
-      className="message-card">
-      <ListSubheader className="message-card__author">
-        { props.author }
-      </ListSubheader>
-      <ListItem className="message-card__text">
-        { props.text }
-      </ListItem>
+      // component='div'
+    >
+      <Paper elevation={0}>
+        <Container>
+          <Typography
+            component='span'
+            sx={{color: 'primary'}}
+          >
+            { props.author }
+          </Typography>
+        </Container>
+      </Paper>
+      <Paper elevation={5}>
+        <Container>
+          <Typography
+            component='span'
+            sx={{color: 'primary'}}
+          >
+            { props.text }
+          </Typography>
+        </Container>
+      </Paper>
     </List>
   );
 }

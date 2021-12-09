@@ -1,30 +1,31 @@
-import { FormControl, TextField, Button} from "@mui/material";
+import { FormControl, TextField, Button } from "@mui/material";
 import SendIcon from '@mui/icons-material/Send';
-import "./MessageForm.css"
 
 
 function MessageForm(props) {
   return ( 
-    <FormControl
-      fullWidth
-      className="message-form"
-    >
-      <TextField 
-        inputRef={textFieldRef => textFieldRef && textFieldRef.focus()}
-        label="Your message" 
-        variant="outlined" 
-        onChange={props.changeMessageInput}
-        value={props.newMessageText}
-        className="message-form__input"
-      />
-      <Button 
-        onClick={props.submitMessageForm} 
-        variant="contained"
-        className="message-form__button"
+      <FormControl
+        sx={{flexDirection:"row", 
+            alignItems: "center",
+            marginTop:"16px"
+            }}
       >
-        <SendIcon />
-      </Button>
-    </FormControl>
+        <TextField 
+          inputRef={textFieldRef => textFieldRef && textFieldRef.focus()}
+          label="Your message" 
+          variant="outlined" 
+          onChange={props.changeMessageInput}
+          value={props.newMessageText}
+          sx={{mr: "8px", flexGrow:'1'}}
+        />
+        <Button 
+          onClick={props.submitMessageForm} 
+          variant="contained"
+          sx={{minWidth: "30px", marginRight:"16px"}}
+        >
+          <SendIcon />
+        </Button>
+      </FormControl>
    );
 }
 

@@ -3,8 +3,7 @@ import MessageList from './MessageList';
 import MessageForm from './MessageForm';
 import ChatList from './ChatList';
 import { useEffect } from 'react';
-import { Container, Grid } from '@mui/material';
-import "./MessageApp"
+import { Grid } from '@mui/material';
 
 function MessageApp() {
   // for testing ChatList component 
@@ -31,26 +30,19 @@ function MessageApp() {
   
 
   return ( 
-    <>
-      <Grid container spacing={1}>
-        <Grid item xs={4}>
-          <Container className="chat-block">
-            <ChatList chatList={chatList}/>
-          </Container>
-        </Grid>
-        <Grid item xs={8}>
-          <Container className="message-block">
-            <MessageList messageList={messageList}/> 
-            <MessageForm 
-              newMessageText={newMessageText}
-              changeMessageInput={changeMessageInput}
-              submitMessageForm={submitMessageForm}        
-              />
-          </Container>
-        </Grid>
-        
+    <Grid container spacing={1}>
+      <Grid item xs={4}>
+        <ChatList chatList={chatList}/>
       </Grid>
-    </>
+      <Grid item xs={8} container direction="column">
+        <MessageList messageList={messageList}/> 
+        <MessageForm 
+          newMessageText={newMessageText}
+          changeMessageInput={changeMessageInput}
+          submitMessageForm={submitMessageForm}        
+          />
+      </Grid>
+    </Grid>
    );
 }
 
