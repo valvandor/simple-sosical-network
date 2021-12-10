@@ -1,0 +1,7 @@
+.chat-item {
+}
+
+.chat-item__button {
+  width: 100%;
+  justify-content: left !important;
+}

@@ -4,11 +4,10 @@
   align-items: center;
 }
 
-.message-card__author, .message-card__text {
-  width: 80%;
-  margin: 0;
-  padding: 10px 15px;
-  font-size: calc(10px + 2vmin);
-  text-align: left;
-  background-color: lavender;
+.message-card__author {
+  width: 100%;
+}
+
+.message-card__text {
+  background-color: #fff;
 }

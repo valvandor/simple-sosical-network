@@ -4,18 +4,21 @@ import { useCallback, useState } from 'react';
 export const useMessages = () => {
   const [messageList, setMessageList] = useState([]);
   const [newMessageText, setNewMessageText] = useState('');
+  const [messageId, setMessageId] = useState('1')
 
   const sendMessage = useCallback((author, text) => {
     const copyMessageList = [...messageList];
     const newMessage = {
+      id: messageId,
       author: author,
       text: text
     };
     copyMessageList.push(newMessage);
     setMessageList(copyMessageList);
-  }, [messageList]);
+    setMessageId((id) => id + 1)
+  }, [messageId, messageList]);
 
-  const onSubmitMessageForm = useCallback((event) => {
+  const submitMessageForm = useCallback((event) => {
     event.preventDefault();
     if (newMessageText){
       sendMessage('You', newMessageText);
@@ -23,12 +26,12 @@ export const useMessages = () => {
     }
   }, [newMessageText, sendMessage]);
 
-  const onChangeMessageInput = useCallback((event) => {
+  const changeMessageInput = useCallback((event) => {
     setNewMessageText(event.target.value);
   }, []);
 
   return [
     {messageList, newMessageText},
-    {onChangeMessageInput, onSubmitMessageForm, sendMessage}
+    {changeMessageInput, submitMessageForm, sendMessage}
   ];
 };

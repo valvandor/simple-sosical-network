@@ -1,12 +1,18 @@
 import { useMessages } from '../hooks/useMessages';
 import MessageList from './MessageList';
 import MessageForm from './MessageForm';
+import ChatList from './ChatList';
 import { useEffect } from 'react';
+import { Container, Grid } from '@mui/material';
+import "./MessageApp"
 
 function MessageApp() {
+  // for testing ChatList component 
+  const chatList = [{id: "1", name: "Peter"}, {id: "2", name: "Max"}];
+
   const [
     {messageList, newMessageText}, 
-    {onChangeMessageInput, onSubmitMessageForm, sendMessage}
+    {changeMessageInput, submitMessageForm, sendMessage}
   ] = useMessages()
 
   useEffect(() => {
@@ -26,12 +32,24 @@ function MessageApp() {
 
   return ( 
     <>
-      <MessageList messageList={messageList}/> 
-      <MessageForm 
-        newMessageText={newMessageText}
-        onChangeMessageInput={onChangeMessageInput}
-        onSubmitMessageForm={onSubmitMessageForm}        
-      />
+      <Grid container spacing={1}>
+        <Grid item xs={4}>
+          <Container className="chat-block">
+            <ChatList chatList={chatList}/>
+          </Container>
+        </Grid>
+        <Grid item xs={8}>
+          <Container className="message-block">
+            <MessageList messageList={messageList}/> 
+            <MessageForm 
+              newMessageText={newMessageText}
+              changeMessageInput={changeMessageInput}
+              submitMessageForm={submitMessageForm}        
+              />
+          </Container>
+        </Grid>
+        
+      </Grid>
     </>
    );
 }
