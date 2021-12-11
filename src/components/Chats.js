@@ -5,7 +5,7 @@ import ChatList from './ChatList';
 import { useEffect } from 'react';
 import { Grid } from '@mui/material';
 
-function MessageApp() {
+function Chats() {
   // for testing ChatList component 
   const chatList = [{id: "1", name: "Peter"}, {id: "2", name: "Max"}];
 
@@ -47,4 +47,4 @@ function MessageApp() {
 }
 
 
-export default MessageApp;
+export default Chats;

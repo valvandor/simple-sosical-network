@@ -8,7 +8,7 @@ function HeadBar() {
     <AppBar position="static">
       <Toolbar sx={{justifyContent:"space-between"}}>
         <IconButton 
-          to="/messages/" 
+          to="/chats/" 
           component={Link}
         >
           <DialpadRoundedIcon fontSize="large"/>

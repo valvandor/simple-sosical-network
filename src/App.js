@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import MessageApp from './components/MessageApp';
+import Chats from './components/Chats';
 import { ThemeProvider } from '@mui/material';
 import { theme } from './theme/themeMUI';
 import HeadBar from './components/HeadBar';
@@ -22,8 +22,8 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/profile/" component={Profile} />
-          <Route exact path="/messages/">
-            <MessageApp parent="messages" />
+          <Route exact path="/chats/">
+              <Chats/>
           </Route>
         </Switch>
       </BrowserRouter>
