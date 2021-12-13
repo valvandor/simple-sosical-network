@@ -1,11 +1,16 @@
 import { Button } from '@mui/material';
 import ListItem from '@mui/material/ListItem';
-import "./Chat.css"
+import { Link } from 'react-router-dom';
 
 function Chat(props) {
+
   return ( 
-    <ListItem className="chat-item">
-      <Button className="chat-item__button">
+    <ListItem>
+      <Button 
+        sx={{justifyContent: 'left', width: "100%"}}
+        component={Link}
+        to={`${props.parentPath}${props.chatId}`}
+      >
         {props.name}
       </Button>
     </ListItem>
