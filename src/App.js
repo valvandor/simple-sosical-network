@@ -23,7 +23,7 @@ function App() {
           <Route exact path="/" component={Home} />
           <Route exact path="/profile/" component={Profile} />
           <Route exact path="/chats/">
-              <Chats/>
+            {props => <Chats parentPath={props.match.path} />}
           </Route>
         </Switch>
       </BrowserRouter>

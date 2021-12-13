@@ -11,6 +11,8 @@ function ChatList(props) {
         {props.chatList.map((chat) => 
           <Chat 
             key={chat.id}
+            chatId={chat.id}
+            parentPath={props.parentPath}
             name={chat.name}
           />
         )}

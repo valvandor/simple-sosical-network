@@ -2,13 +2,12 @@ import { useMessages } from '../hooks/useMessages';
 import MessageList from './MessageList';
 import MessageForm from './MessageForm';
 import ChatList from './ChatList';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { Grid } from '@mui/material';
+import { MOCK_CHATS } from '../helpers/mockChats';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function Chats() {
-  // for testing ChatList component 
-  const chatList = [{id: "1", name: "Peter"}, {id: "2", name: "Max"}];
-
+function Chats(props) {
   const [
     {messageList, newMessageText}, 
     {changeMessageInput, submitMessageForm, sendMessage}
@@ -27,22 +26,40 @@ function Chats() {
       }
     }
   }, [messageList, sendMessage]);
+
+  const [chatList, setChatList] = useState(MOCK_CHATS)
   
 
   return ( 
-    <Grid container spacing={1}>
-      <Grid item xs={4}>
-        <ChatList chatList={chatList}/>
-      </Grid>
-      <Grid item xs={8} container direction="column">
-        <MessageList messageList={messageList}/> 
-        <MessageForm 
-          newMessageText={newMessageText}
-          changeMessageInput={changeMessageInput}
-          submitMessageForm={submitMessageForm}        
+    <BrowserRouter>
+      <Grid container spacing={1}>
+        <Grid item xs={4}>
+          <ChatList 
+            chatList={chatList} 
+            parentPath={props.parentPath}
           />
+        </Grid>
+        <Grid item xs={8} container direction="column">
+          <Switch>
+            <Route exact path={`${props.parentPath}:chatId`}>
+              <MessageList 
+                chatList={chatList} 
+              >
+              </MessageList>
+              <MessageForm 
+                newMessageText={newMessageText}
+                changeMessageInput={changeMessageInput}
+                submitMessageForm={submitMessageForm}        
+              />
+            </Route>
+            <Route path={`${props.parentPath}`}>
+              <h6>Choose a chat</h6>
+            </Route>
+          </Switch>
+        </Grid>
       </Grid>
-    </Grid>
+    </BrowserRouter>
+
    );
 }
 

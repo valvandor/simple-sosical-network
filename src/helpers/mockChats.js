@@ -17,7 +17,7 @@ export const createChat = () => {
     // title: chance().sentence(),
     // content: chance().paragraph({ sentences: 20 }),
     messagesCount,
-    comments: Array.from({
+    messages: Array.from({
       length: messagesCount
     }).map(createMessage)
   };
