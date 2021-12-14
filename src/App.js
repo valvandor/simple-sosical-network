@@ -1,22 +1,19 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Chats from './components/Chats';
 import { Container, ThemeProvider, Paper } from '@mui/material';
-import { darkTheme } from './theme';
 import HeadBar from './components/HeadBar';
+import { useSelector } from 'react-redux';
+import { Profile } from './routes/Profile/Profile';
+import { Home } from './routes/Home';
+import { getSelectedTheme, getThemes } from './store/themes/selectors';
 
-
-function Home() {
-  return ( <h1>Home</h1> );
-}
-
-function Profile() {
-  return ( <h1>Profile</h1> );
-}
 
 function App() {
+  const themes = useSelector(getThemes)
+  const selectedTheme = useSelector(getSelectedTheme)
 
   return (
-    <ThemeProvider theme={darkTheme}>
+    <ThemeProvider theme={themes[selectedTheme]}>
       <BrowserRouter>
         <HeadBar />
         <Paper>
