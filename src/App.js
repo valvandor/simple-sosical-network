@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Chats from './components/Chats';
-import { ThemeProvider } from '@mui/material';
+import { Container, ThemeProvider } from '@mui/material';
 import { theme } from './theme/themeMUI';
 import HeadBar from './components/HeadBar';
 
@@ -19,13 +19,15 @@ function App() {
     <ThemeProvider theme={theme}>
       <BrowserRouter>
         <HeadBar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/profile/" component={Profile} />
-          <Route exact path="/chats/">
-            {props => <Chats parentPath={props.match.path} />}
-          </Route>
-        </Switch>
+        <Container>
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/profile/" component={Profile} />
+            <Route exact path="/chats/">
+              {props => <Chats parentPath={props.match.path} />}
+            </Route>
+          </Switch>
+        </Container>
       </BrowserRouter>
     </ThemeProvider>
   );
