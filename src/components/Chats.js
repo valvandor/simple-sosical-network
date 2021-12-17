@@ -3,7 +3,7 @@ import MessageList from './MessageList';
 import MessageForm from './MessageForm';
 import ChatList from './ChatList';
 import { useEffect, useState } from 'react';
-import { Grid } from '@mui/material';
+import { Container, Grid } from '@mui/material';
 import { MOCK_CHATS } from '../helpers/mockChats';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
@@ -32,14 +32,14 @@ function Chats(props) {
 
   return ( 
     <BrowserRouter>
-      <Grid container spacing={1}>
+      <Grid container>
         <Grid item xs={4}>
           <ChatList 
             chatList={chatList} 
             parentPath={props.parentPath}
           />
         </Grid>
-        <Grid item xs={8} container direction="column">
+        <Grid item xs={8} container direction="column" component={Container}>
           <Switch>
             <Route exact path={`${props.parentPath}:chatId`}>
               <MessageList 
