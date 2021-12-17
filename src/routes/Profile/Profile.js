@@ -1,4 +1,4 @@
-import ThemeToggle from './components/ThemeToggle';
+import ThemeToggle from './components';
 import { Box, Typography } from '@mui/material';
 
 
