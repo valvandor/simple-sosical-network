@@ -1,11 +1,23 @@
 import ThemeToggle from './components/ThemeToggle';
+import { Box, Typography } from '@mui/material';
+
 
 export function Profile() {
 
   return (
-    <div>
-      <h4>Profile</h4>
+    <Box 
+      sx={{height: "calc(100vh - 64px - 16px)"}}
+      pt={2}
+    >
+      <Typography
+        variant='h4'
+        component='h4'
+        align='right'
+      >
+        Profile
+      </Typography>
+
       <ThemeToggle />
-    </div>
+    </Box>
   );
 }
