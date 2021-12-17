@@ -1,5 +1,6 @@
-export const TOGGLE_THEME = 'TOGGLE_THEME'
+export const CHANGE_THEME = 'THEME::CHANGE_THEME'
 
-export const toggleTheme = {
-  type: TOGGLE_THEME
-}
+export const changeTheme = (newTheme) => ({
+  type: CHANGE_THEME,
+  payload: newTheme
+});

@@ -5,15 +5,15 @@ import HeadBar from './components/HeadBar';
 import { useSelector } from 'react-redux';
 import { Profile } from './routes/Profile/Profile';
 import { Home } from './routes/Home';
-import { getSelectedTheme, getThemes } from './store/themes/selectors';
+import { getCurrentTheme, getThemes } from './store/themes/selectors';
 
 
 function App() {
   const themes = useSelector(getThemes)
-  const selectedTheme = useSelector(getSelectedTheme)
+  const currentTheme = useSelector(getCurrentTheme)
 
   return (
-    <ThemeProvider theme={themes[selectedTheme]}>
+    <ThemeProvider theme={themes[currentTheme]}>
       <BrowserRouter>
         <HeadBar />
         <Paper>
