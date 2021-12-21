@@ -1,10 +1,8 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Chats from './components/Chats';
 import { Container, ThemeProvider, Paper } from '@mui/material';
 import HeadBar from './components/HeadBar';
 import { useSelector } from 'react-redux';
-import { Profile } from './routes/Profile/Profile';
-import { Home } from './routes/Home';
+import { Profile, Home, Chats } from './routes';
 import { getCurrentTheme, getThemes } from './store/themes/selectors';
 
 

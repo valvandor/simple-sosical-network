@@ -1,4 +1,4 @@
-import { lightTheme, darkTheme } from "../../theme";
+import { lightTheme, darkTheme } from "./themes";
 import { CHANGE_THEME } from "./action";
 
 

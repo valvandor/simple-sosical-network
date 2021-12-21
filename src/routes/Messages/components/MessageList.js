@@ -1,5 +1,5 @@
 import { List } from '@mui/material';
-import Message from './Message';
+import { Message } from './';
 import { useParams } from 'react-router';
 import { useEffect, useState } from 'react';
 
