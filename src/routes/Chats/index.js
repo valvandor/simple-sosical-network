@@ -1,11 +1,11 @@
-import { useMessages } from '../hooks/useMessages';
-import MessageList from './MessageList';
-import MessageForm from './MessageForm';
-import ChatList from './ChatList';
+import { useMessages } from '../../hooks/useMessages';
+
+import { ChatList } from './components';
 import { useEffect, useState } from 'react';
 import { Container, Grid } from '@mui/material';
-import { MOCK_CHATS } from '../helpers/mockChats';
+import { MOCK_CHATS } from '../../helpers/mockChats';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Messages from '../Messages';
 
 function Chats(props) {
   const [
@@ -42,14 +42,11 @@ function Chats(props) {
         <Grid item xs={8} container direction="column" component={Container}>
           <Switch>
             <Route exact path={`${props.parentPath}:chatId`}>
-              <MessageList 
-                chatList={chatList} 
-              >
-              </MessageList>
-              <MessageForm 
+              <Messages 
+                chatList={chatList}
                 newMessageText={newMessageText}
                 changeMessageInput={changeMessageInput}
-                submitMessageForm={submitMessageForm}        
+                submitMessageForm={submitMessageForm}
               />
             </Route>
             <Route path={`${props.parentPath}`}>

@@ -3,8 +3,8 @@ import React, { useCallback } from 'react'
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCurrentTheme } from '../../../store/themes/selectors';
-import { changeTheme } from '../../../store/themes/action';
+import { getCurrentTheme } from '../store/themes/selectors';
+import { changeTheme } from '../store/themes/action';
 
 function ThemeToggle() {
   const currentTheme = useSelector(getCurrentTheme);

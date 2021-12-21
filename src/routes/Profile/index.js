@@ -1,9 +1,9 @@
-import ThemeToggle from './components';
+import ThemeToggle from '../../components/ThemeToggle';
 import { Box, Typography } from '@mui/material';
 
+import React from 'react'
 
-export function Profile() {
-
+function Profile() {
   return (
     <Box 
       sx={{height: "calc(100vh - 64px - 16px)"}}
@@ -19,5 +19,7 @@ export function Profile() {
 
       <ThemeToggle />
     </Box>
-  );
+  )
 }
+
+export default Profile

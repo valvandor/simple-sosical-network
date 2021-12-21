@@ -1,5 +1,5 @@
 import { List } from '@mui/material';
-import Chat from './Chat';
+import { Chat } from './';
 
 function ChatList(props) {
   return ( 
